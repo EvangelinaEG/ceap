@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <NavBar logo = {logo} />
-      <ItemListContainer mensaje = 'Ofertas de la semana'/>
+      <ItemListContainer greeting = 'Ofertas de la semana'/>
     </div>
   );
 }
