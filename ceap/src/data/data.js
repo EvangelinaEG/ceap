@@ -4,7 +4,7 @@ export const stock = [
         descripcion: 'remera rosa adidas',
         precio: 2000,
         img:'https://static.dafiti.com.ar/p/adidas-9854-098237-1-product.jpg',
-        categoria: 'muejer'
+        categoria: 'mujer'
     },
     {
         id: 2,

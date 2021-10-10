@@ -1,0 +1,23 @@
+Button{
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+Button{
+    &:hover{
+        border: none;
+    }
+    &:focus{
+        outline:0px;
+        box-shadow: none;
+    }
+}
+.btn{
+    &:focus{
+        box-shadow: none;
+        border: none;
+    }
+}
+button svg{
+    color: white;
+}

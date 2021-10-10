@@ -4,10 +4,12 @@
 
 .collapse .button{
     justify-content: end;
+    background-color: transparent;
 }
 
 .navbar-collapse{
-    width: 100rem;
+    width: 65rem;
+    color: white;
 }
   .App-logo {
     height: 40vmin;
