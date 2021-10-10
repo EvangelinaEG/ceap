@@ -6,7 +6,7 @@ import './NavBar.css';
 export const NavBar = (logo) => {
 
     return <>
-    <Navbar ldark bg="dark">
+    <Navbar bg="dark">
         <React.Fragment>
         <Navbar expand="lg" dark bg="dark" mb="3" >
         <Navbar.Brand href="#">
