@@ -40,5 +40,19 @@ export const stock = [
         precio: 2490,
         img:'https://static.dafiti.com.ar/p/mambo-kids-5537-329536-1-catalog-new.jpg',
         categoria: 'infantil'
+    },
+    {
+        id: 7,
+        descripcion: 'Conjunto Mini Marruecos',
+        precio: 2490,
+        img:'https://statics.glamit.com.ar/media/catalog/product/cache/55/base/246x290/9df78eab33525d08d6e5fb8d27136e95/m/i/mimo_v22m29022c_2c_1.jpg',
+        categoria: 'bebes'
+    },
+    {
+        id: 8,
+        descripcion: 'Body mini Viena',
+        precio: 1490,
+        img:'https://statics.glamit.com.ar/media/catalog/product/cache/55/base/246x290/9df78eab33525d08d6e5fb8d27136e95/m/i/mimo_v22m23044n_4n_1.jpg',
+        categoria: 'bebes'
     }
 ]
