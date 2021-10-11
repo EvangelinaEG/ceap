@@ -2,6 +2,14 @@ Button{
     background-color: transparent;
     color: white;
     border: none;
+    
+}
+.btn-primary{
+    background-color: rgb(226, 186, 8);
+    border: none;
+    &:hover{
+        background-color: rgba(226, 186, 8, 0.9);
+    }
 }
 Button{
     &:hover{

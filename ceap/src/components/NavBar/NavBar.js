@@ -1,7 +1,8 @@
 import React from 'react';
-import { Navbar, BImg, Nav, Collapse } from 'bootstrap-4-react';
+import { Navbar, BImg, Collapse } from 'bootstrap-4-react';
 import { CartWidget } from '../CartWidget.js'
-import './NavBar.css';
+import './NavBar.scss';
+import { Link, NavLink } from 'react-router-dom';
 
 export const NavBar = (logo) => {
 
@@ -9,7 +10,7 @@ export const NavBar = (logo) => {
     <Navbar bg="dark">
         <React.Fragment>
         <Navbar expand="lg" dark bg="dark" mb="3" >
-        <Navbar.Brand href="#">
+        <Navbar.Brand href="/">
           <BImg
             src={logo.logo}
             width="30"
@@ -23,12 +24,13 @@ export const NavBar = (logo) => {
           <Navbar.Toggler target="#navbarColor1" />
           <Collapse navbar id="navbarColor1">
             <Navbar.Nav mr="auto" className='bg-faded' >
-              <Nav.ItemLink href="#" active>Hombres</Nav.ItemLink>
-              <Nav.ItemLink href="#">Mujeres</Nav.ItemLink>
-              <Nav.ItemLink href="#">Niños</Nav.ItemLink>
-              <Nav.ItemLink href="#">Bebés</Nav.ItemLink>
+              <NavLink activeClassName={ 'activeLink' } exact to='/'>Productos</NavLink>
+              <NavLink activeClassName={ 'activeLink' } exact to='/productos/hombre'>Hombre</NavLink>
+              <NavLink activeClassName={ 'activeLink' } exact to='/productos/mujer'>Mujer</NavLink>
+              <NavLink activeClassName={ 'activeLink' } exact to='/productos/infantil'>Niños</NavLink>
+              <NavLink activeClassName={ 'activeLink' } exact to='/productos/bebes'>Bebés</NavLink>
             </Navbar.Nav>
-            <CartWidget />
+            <Link to='/cart'><CartWidget /></Link>
           </Collapse>
         </Navbar>
       </React.Fragment>
