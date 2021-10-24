@@ -6,11 +6,25 @@ import { ItemDetailContainer } from './components/itemDetailContainer/ItemDetail
 import {
   BrowserRouter, Route, Switch, Redirect
 } from 'react-router-dom'
+import { CartContext } from './context/CartContext';
+import { useState } from 'react';
+
 
 
 function App() {
+
+  const [ carrito, setCarrito] = useState([])
+console.log(carrito)
+const addToCart = (item) => {
+  setCarrito( [...carrito, item] )
+}
+
   return (
+    <CartContext.Provider value={{
+      addToCart
+    }} >
     <div className="App">
+      
       <BrowserRouter >
       <NavBar logo = {logo} />
       
@@ -32,7 +46,9 @@ function App() {
         </Route>
       </Switch>
       </BrowserRouter >
+      
     </div>
+    </CartContext.Provider>
   );
 }
 

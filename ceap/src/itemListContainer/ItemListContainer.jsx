@@ -8,6 +8,7 @@ export const ItemListContainer = (props) =>{
 const [items, setItems] = useState([]) 
 const [loading, setLoading] = useState(false)
 
+
 const { categoryId } = useParams()
 
 useEffect(() => {
