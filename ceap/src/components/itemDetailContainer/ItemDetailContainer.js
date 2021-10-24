@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
+import { UiContext } from '../../context/UiContext'
 import { pedirProductos } from '../../helpers/pedirProductos'
 import { ItemDetail } from './itemDetail'
 
@@ -8,7 +9,7 @@ import { ItemDetail } from './itemDetail'
 export const ItemDetailContainer = () => {
 
     const [item, setItem] = useState(null);
-    const [loading, setLoading] = useState(false ); 
+   const { loading, setLoading } = useContext( UiContext )
 
     const { itemId } = useParams();
 
@@ -26,7 +27,7 @@ export const ItemDetailContainer = () => {
         .finally(() => {
             setLoading(false)
         }) 
-    }, [itemId])
+    }, [itemId, setLoading])
     
     return (
         <div>

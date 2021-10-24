@@ -6,25 +6,17 @@ import { ItemDetailContainer } from './components/itemDetailContainer/ItemDetail
 import {
   BrowserRouter, Route, Switch, Redirect
 } from 'react-router-dom'
-import { CartContext } from './context/CartContext';
-import { useState } from 'react';
-
-
+import { CartProvider } from './context/CartContext';
+import { Cart } from './components/Cart/Cart';
+import { UiProvider } from './context/UiContext';
 
 function App() {
 
-  const [ carrito, setCarrito] = useState([])
-console.log(carrito)
-const addToCart = (item) => {
-  setCarrito( [...carrito, item] )
-}
 
   return (
-    <CartContext.Provider value={{
-      addToCart
-    }} >
     <div className="App">
-      
+     <UiProvider>
+      <CartProvider>
       <BrowserRouter >
       <NavBar logo = {logo} />
       
@@ -39,16 +31,17 @@ const addToCart = (item) => {
             <ItemDetailContainer />
         </Route>
         <Route exact path= '/cart'>
-          <h1>Carrito</h1>
+          <Cart></Cart>
         </Route>
         <Route exact path= '*'>
           <Redirect to = '/'/>
         </Route>
       </Switch>
       </BrowserRouter >
-      
+      </CartProvider>
+      </UiProvider>
     </div>
-    </CartContext.Provider>
+    
   );
 }
 

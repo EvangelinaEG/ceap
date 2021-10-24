@@ -16,7 +16,7 @@ function ItemCount({ cantidad, modify, limite }) {
         <div className='input-group justify-content-center' >
         <button className = 'btn btn-primary' onClick={ () => handleSumar() }>
             -
-        </button>
+        </button>   
         <div className='mx-3'>
             { cantidad }
         </div>

@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { UiContext } from '../context/UiContext';
 import { pedirProductos } from '../helpers/pedirProductos';
 import { ItemList } from './ItemList';
 
 export const ItemListContainer = (props) =>{
 
 const [items, setItems] = useState([]) 
-const [loading, setLoading] = useState(false)
+const {loading, setLoading } = useContext( UiContext )
 
 
 const { categoryId } = useParams()
@@ -27,7 +28,7 @@ useEffect(() => {
     .finally(() => {
         setLoading(false)
     }) 
-}, [ categoryId ] )
+}, [ categoryId, setLoading ] )
 
     return (
     <section className = 'container my-5'>
