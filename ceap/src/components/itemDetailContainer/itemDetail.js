@@ -54,7 +54,7 @@ export const ItemDetail = ({id, descripcion, precio, img, categoria, stock}) => 
                     <Link to='/cart' className='btn btn-primary'>Ver en el carrito</Link>
                 :
                     <>
-                       <ItemCount cantidad={cantidad} modify={ handleCantidad } limite={stock} />
+                       <ItemCount cantidad={cantidad} modify={ handleCantidad } limite={stock} prodId={id}/>
                         <br />
                         <button
                             disabled={cantidad === 0}
