@@ -12,7 +12,10 @@ export const ItemDetail = ({id, descripcion, precio, img, categoria, stock}) => 
 
     const { addToCart, isInCart } = useContext( CartContext )
 
- 
+    const handleCantidad = ( cant ) => {
+        setCantidad( cant );
+    }
+
 
     const handleAgregar = () => {
         const newItem = {
@@ -26,6 +29,11 @@ export const ItemDetail = ({id, descripcion, precio, img, categoria, stock}) => 
             }
             if(cantidad > 0)
            addToCart(newItem)
+    }
+
+    const styles = {
+        btnAgregar: isInCart(id) ? "btn btn-danger m-2" : "btn btn-success m-2",
+        btnTerminar: `btn btn-success ${!isInCart(id) && "desactivado"}`
     }
 
     return (
@@ -43,12 +51,18 @@ export const ItemDetail = ({id, descripcion, precio, img, categoria, stock}) => 
             
             { isInCart(id) 
                 ? 
-                    <Link to='/cart' className='btn btn-primary'>Terminar mi compra</Link>
+                    <Link to='/cart' className='btn btn-primary'>Ver en el carrito</Link>
                 :
                     <>
-                        <ItemCount cantidad={ cantidad } modify={ setCantidad } limite = {stock} />
+                       <ItemCount cantidad={cantidad} modify={ handleCantidad } limite={stock} />
                         <br />
-                        <button className='btn btn-primary my-2' onClick={() => handleAgregar()}>Agregar al carrito</button> 
+                        <button
+                            disabled={cantidad === 0}
+                            className={styles.btnAgregar}
+                            onClick={handleAgregar}
+                            >
+                            Agregar
+                        </button>
                         <Link to={`/cart`}>
                             <button className='btn btn-primary' >Mostrar Carrito</button>
                         </Link>

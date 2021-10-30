@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Loader } from '../components/Loader/Loader';
 import { UiContext } from '../context/UiContext';
 import { pedirProductos } from '../helpers/pedirProductos';
 import { ItemList } from './ItemList';
-
 export const ItemListContainer = (props) =>{
 
 const [items, setItems] = useState([]) 
@@ -32,9 +32,10 @@ useEffect(() => {
 
     return (
     <section className = 'container my-5'>
-        {
-            loading ? <h2>Cargando...</h2> : <ItemList productos = {items} />
-        }
+        
+            { loading && <Loader />}
+            { !loading && <ItemList productos = {items} /> }
+        
     </section>
     )
 }

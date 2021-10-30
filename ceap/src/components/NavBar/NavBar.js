@@ -5,7 +5,7 @@ import './NavBar.scss';
 import { Link, NavLink } from 'react-router-dom';
 
 export const NavBar = (logo) => {
-
+  
     return <>
     <Navbar bg="dark">
         <React.Fragment>

@@ -2,7 +2,16 @@ Button{
     background-color: transparent;
     color: white;
     border: none;
-    
+    position: relative;
+    span{
+        border-radius: 50%;
+        background-color: rgba(226, 186, 8, 0.9);
+        font-size: 0.5rem;
+        padding: 0.5rem;
+        right: 25px;
+        bottom: 20px;
+        position: absolute;
+    }
 }
 .btn-primary{
     background-color: rgb(226, 186, 8);
