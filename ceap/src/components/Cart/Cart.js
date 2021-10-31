@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Redirect, useHistory } from 'react-router-dom'
+import { Link, Redirect, useHistory } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
 import { BsFillTrashFill } from 'react-icons/bs'
 import './cart.scss'
@@ -8,15 +8,11 @@ import ItemCount from '../itemCount/ItemCount'
 
 export const Cart = () => {
 
-    const { carrito, vaciarCarrito, removeItem, calcularTotal, addToCart } = useContext( CartContext )
+    const { carrito, vaciarCarrito, removeItem, calcularTotal, updateItem} = useContext( CartContext )
     const {goBack} = useHistory()
 
     const handleCantidad = (cant, prodId) => {
-        const productToUpdate = carrito.find( (cartElement) => cartElement.id === prodId);
-        console.log(productToUpdate);
-        productToUpdate.cantidad = cant;
-        removeItem(prodId);
-        addToCart(productToUpdate);
+        updateItem(prodId,cant)
     }
 
     return (
@@ -35,11 +31,14 @@ export const Cart = () => {
                         carrito.map( (prod, i) => (
                             <>
                             <div className='container my-5 flex' >
-                                <img src={prod.img} width='100' alt={prod.descripcion} />
-                                <small>{prod.descripcion}</small>
-                                <p>Cantidad: {prod.cantidad}</p>
+                                <Link to={`/detail/${prod.id}`}>
+                                    <img src={prod.img} width='150' alt={prod.descripcion} />
+                                </Link>
+                                <div className='column'>
+                                    <small>{prod.descripcion}</small>
                                     <ItemCount key={ i } cantidad={prod.cantidad} modify={handleCantidad } limite={prod.stock}  prodId={prod.id} />
-                                <p>Precio: {prod.precio * prod.cantidad} </p>
+                                    <p>Precio: {prod.precio * prod.cantidad} </p>
+                                </div>
                                 <button className="btn btn-danger" onClick={() => removeItem(prod.id)}>
                                     <BsFillTrashFill/>
                                 </button>

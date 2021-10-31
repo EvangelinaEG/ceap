@@ -38,36 +38,42 @@ export const ItemDetail = ({id, descripcion, precio, img, categoria, stock}) => 
 
     return (
 
-        <div className='container m-3'>
-            
-            <small> id: { id } </small>
-            <h2> { descripcion } </h2>
-            <hr />
-            <img src={ img } alt= { descripcion }  />
-            <hr />
-            <h2>Precio: $ { precio } </h2>
-            <h4>Stock: { stock } </h4>
-            <br />
-            
-            { isInCart(id) 
-                ? 
-                    <Link to='/cart' className='btn btn-primary'>Ver en el carrito</Link>
-                :
-                    <>
-                       <ItemCount cantidad={cantidad} modify={ handleCantidad } limite={stock} prodId={id}/>
-                        <br />
-                        <button
-                            disabled={cantidad === 0}
-                            className={styles.btnAgregar}
-                            onClick={handleAgregar}
-                            >
-                            Agregar
-                        </button>
-                        <Link to={`/cart`}>
-                            <button className='btn btn-primary' >Mostrar Carrito</button>
-                        </Link>
-                    </>
-            }
+        <div className='container m-3 '>
+            <div className='flex'>
+                <div className='mx-3'>
+                    <img src={ img } alt= { descripcion }  />
+                </div>
+                <div className='column'>
+                    <small> id: { id } </small>
+                    <h2> { descripcion } </h2>
+                    
+                    <hr />
+                    <h2>Precio: $ { precio } </h2>
+                    <h4>Stock: { stock } </h4>
+                    <br />
+                    
+                    { isInCart(id) 
+                        ? 
+                            <Link to='/cart' className='btn btn-primary'>Ver en el carrito</Link>
+                        :
+                            <>
+                            <p>Cantidad:</p>
+                            <ItemCount cantidad={cantidad} modify={ handleCantidad } limite={stock} prodId={id}/>
+                                <br />
+                                <button
+                                    disabled={cantidad === 0}
+                                    className={styles.btnAgregar}
+                                    onClick={handleAgregar}
+                                    >
+                                    Agregar
+                                </button>
+                                <Link to={`/cart`}>
+                                    <button className='btn btn-primary' >Mostrar Carrito</button>
+                                </Link>
+                            </>
+                    }
+                </div>
+            </div>
             <hr />
             <button className='btn btn-primary' onClick={() => goBack()}> Volver</button>
         </div>

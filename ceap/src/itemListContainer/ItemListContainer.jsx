@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Loader } from '../components/Loader/Loader';
 import { UiContext } from '../context/UiContext';
-import { pedirProductos } from '../helpers/pedirProductos';
+import { getFirestore } from '../firebase/config';
 import { ItemList } from './ItemList';
 export const ItemListContainer = (props) =>{
 
@@ -15,19 +15,24 @@ const { categoryId } = useParams()
 useEffect(() => {
     setLoading(true)
 
-    pedirProductos()
-    .then( (res) => {
-        if(categoryId){
-            setItems ( res.filter(prod => prod.categoria === categoryId) )
-        }else{
-            setItems(res)    
-        }
-        
-    } )
-    .catch((err) =>  console.log(err))
-    .finally(() => {
-        setLoading(false)
-    }) 
+    const db = getFirestore()
+    const productos = categoryId 
+                            ? db.collection('productos').where('categoria', '==', categoryId)
+                            : db.collection('productos')
+
+        productos.get()
+            
+    
+        .then((response) => {
+            const newItems = response.docs.map((doc) => {
+                return {id: doc.id, ...doc.data()}
+            })
+            setItems(newItems)
+        })
+        .catch( err => console.log(err))
+        .finally(() => { 
+            setLoading(false) 
+        })
 }, [ categoryId, setLoading ] )
 
     return (
