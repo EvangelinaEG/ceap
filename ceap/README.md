@@ -1,7 +1,7 @@
 # Giomara
 
 Project Presentation
-![image](https://github.com/EvangelinaEG/ceap/blob/main/ceap/src/presentacion.mp4)
+![video](https://github.com/EvangelinaEG/ceap/blob/main/ceap/src/presentacion.mp4)
 
 ## Crédits
 
