@@ -1,11 +1,10 @@
 # Giomara
 
 Project Presentation
-![Giomara](https:
 
 https://user-images.githubusercontent.com/72418355/142693835-83b14a54-64dd-4a9e-be1a-7bc97a0eae0d.mp4
 
-//github.com/EvangelinaEG/ceap/blob/main/ceap/src/presentacion.mp4)
+
 
 ## Crédits
 
