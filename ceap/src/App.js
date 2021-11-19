@@ -9,6 +9,7 @@ import {
 import { CartProvider } from './context/CartContext';
 import { Cart } from './components/Cart/Cart';
 import { UiProvider } from './context/UiContext';
+import { Checkout } from './components/Checkout/Checkout';
 
 function App() {
 
@@ -30,8 +31,11 @@ function App() {
         <Route exact path='/detail/:itemId'>
             <ItemDetailContainer />
         </Route>
-        <Route exact path= '/cart'>
-          <Cart></Cart>
+        <Route exact path='/cart'>
+          <Cart />
+        </Route>
+        <Route exact path='/checkout'>
+         <Checkout />
         </Route>
         <Route exact path= '*'>
           <Redirect to = '/'/>

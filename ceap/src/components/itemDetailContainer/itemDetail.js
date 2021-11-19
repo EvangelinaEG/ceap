@@ -32,7 +32,7 @@ export const ItemDetail = ({id, descripcion, precio, img, categoria, stock}) => 
     }
 
     const styles = {
-        btnAgregar: isInCart(id) ? "btn btn-danger m-2" : "btn btn-success m-2",
+        btnAgregar: isInCart(id) ? "btn btn-danger m-2" : "btn btn-success m-5",
         btnTerminar: `btn btn-success ${!isInCart(id) && "desactivado"}`
     }
 

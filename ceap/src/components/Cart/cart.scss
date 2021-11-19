@@ -4,15 +4,20 @@
     flex-wrap: wrap;
     align-items: center;
     flex-direction: row;
-
+    text-align: center;
+    justify-content: space-between;
 }
 .column{
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
 }
 .img{
     display: inline;
 }
 small{
     font-weight: bold;
+}
+.delete{
+    margin: 4rem 2rem;
 }
