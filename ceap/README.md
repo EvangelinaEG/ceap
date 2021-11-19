@@ -1,6 +1,7 @@
 # Giomara
 
-This project was 
+Project Presentation
+![image](https://github.com/EvangelinaEG/ceap/blob/main/ceap/src/presentacion.mov)
 
 ## Crédits
 
